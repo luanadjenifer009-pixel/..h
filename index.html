@@ -2,607 +2,95 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demon Slayer | Para Richard ⚔️❤️</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111018">
+<title>Demon Slayer — Para Richard</title>
 <style>
-:root{
-  --gold:#e9c77b;
-  --red:#b92538;
-  --dark:#08090f;
-  --panel:#151722;
-  --text:#f8f4ed;
-  --muted:#b9bdca;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:#08090f;
-  color:var(--text);
-  font-family:Georgia,"Times New Roman",serif;
-  min-height:100vh;
-}
-button{font:inherit}
-#app{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  position:relative;
-}
-.topbar{
-  padding:14px 17px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#090a10;
-  border-bottom:1px solid #39303a;
-  position:relative;
-  z-index:2;
-}
-.brand{
-  color:var(--gold);
-  font-family:Arial,sans-serif;
-  font-size:12px;
-  letter-spacing:3px;
-  font-weight:bold;
-}
-.progress-text{
-  color:#c8c0c6;
-  font:11px Arial,sans-serif;
-}
-.progress{
-  height:3px;
-  background:#27232d;
-}
-.progress-fill{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#a82039,#e9c77b);
-  transition:width .5s;
-}
-.scene{
-  flex:1;
-  width:100%;
-  max-width:900px;
-  margin:auto;
-  padding:22px 17px 35px;
-  animation:enter .55s ease;
-}
-@keyframes enter{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
-}
-.kicker{
-  color:var(--gold);
-  font:10px Arial,sans-serif;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin:5px 0 12px;
-}
-h1,h2,h3{font-weight:normal;margin-top:0}
-h1{
-  font-size:clamp(34px,8vw,60px);
-  line-height:1.03;
-  margin-bottom:17px;
-}
-h2{
-  font-size:clamp(28px,6vw,42px);
-  line-height:1.1;
-}
-.gold{color:var(--gold)}
-.red{color:#f07783}
-.intro{
-  color:#d0cfda;
-  font:15px/1.8 Arial,sans-serif;
-  max-width:600px;
-}
-.hero{
-  min-height:66vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  position:relative;
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  width:280px;
-  height:280px;
-  right:-110px;
-  top:15%;
-  border-radius:50%;
-  background:radial-gradient(circle,#7b1c3835,transparent 70%);
-  pointer-events:none;
-}
-.seal{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  border:1px solid #69543b;
-  padding:9px 13px;
-  color:#e5d4ac;
-  font:10px Arial,sans-serif;
-  letter-spacing:2px;
-  width:max-content;
-  margin-bottom:24px;
-}
-.primary,.choice,.secondary{
-  border:1px solid #77613f;
-  background:linear-gradient(135deg,#5e1729,#25131f);
-  color:#fff5e5;
-  padding:15px 17px;
-  border-radius:3px;
-  cursor:pointer;
-  text-align:left;
-  transition:transform .2s,border-color .2s,background .2s;
-}
-.primary{
-  display:block;
-  width:100%;
-  max-width:420px;
-  text-align:center;
-  margin-top:25px;
-  letter-spacing:1px;
-}
-.primary:hover,.choice:hover,.secondary:hover{
-  transform:translateY(-2px);
-  border-color:var(--gold);
-}
-.secondary{
-  background:#14151e;
-  border-color:#3c3e4c;
-  text-align:center;
-}
-.scene-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:22px;
-}
-.portrait-wrap{
-  position:relative;
-  min-height:300px;
-  height:clamp(300px,52vh,490px);
-  background:
-    radial-gradient(ellipse at 50% 30%,#652439 0%,#25202c 38%,#090b12 78%);
-  border:1px solid #413344;
-  overflow:hidden;
-}
-.portrait-wrap:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(0deg,#090a10 0%,transparent 38%,#0a0b1215 100%);
-  pointer-events:none;
-}
-.portrait{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center bottom;
-  position:absolute;
-  inset:0;
-  padding:8px 8px 0;
-  filter:drop-shadow(0 8px 20px #0009);
-}
-.portrait-label{
-  position:absolute;
-  bottom:15px;
-  left:16px;
-  z-index:1;
-  text-shadow:0 2px 8px #000;
-}
-.portrait-label strong{
-  display:block;
-  font-size:25px;
-  color:#fff3df;
-}
-.portrait-label span{
-  font:10px Arial,sans-serif;
-  letter-spacing:2px;
-  color:var(--gold);
-  text-transform:uppercase;
-}
-.dialogue{
-  background:linear-gradient(145deg,#171923,#101119);
-  border:1px solid #34313b;
-  padding:21px 19px;
-  position:relative;
-}
-.dialogue:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:48px;
-  height:2px;
-  background:var(--gold);
-}
-.speaker{
-  color:var(--gold);
-  font:10px Arial,sans-serif;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:13px;
-}
-.dialogue-text{
-  font-size:18px;
-  line-height:1.75;
-  color:#f1edf0;
-  white-space:pre-line;
-}
-.dialogue-text em{color:#f39aa5}
-.dialogue-text strong{color:#f0cf88;font-weight:normal}
-.choices{
-  display:grid;
-  gap:10px;
-  margin-top:19px;
-}
-.choice{
-  width:100%;
-  background:#171821;
-  border-color:#383643;
-  font:14px/1.5 Arial,sans-serif;
-}
-.choice .number{
-  display:inline-flex;
-  width:24px;
-  height:24px;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #8b7147;
-  color:var(--gold);
-  margin-right:10px;
-  font-size:11px;
-}
-.footnote{
-  margin-top:22px;
-  color:#8f919e;
-  font:10px/1.6 Arial,sans-serif;
-  letter-spacing:.5px;
-}
-.memory-card{
-  margin-top:18px;
-  padding:20px;
-  background:linear-gradient(140deg,#28151f,#17131d);
-  border:1px solid #6c3c4c;
-  line-height:1.8;
-  font:14px/1.8 Arial,sans-serif;
-}
-.memory-card .heart{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:10px;
-}
-.ending{
-  text-align:center;
-  padding-top:35px;
-}
-.ending .big-heart{
-  font-size:58px;
-  animation:pulse 1.8s infinite;
-}
-@keyframes pulse{
-  50%{transform:scale(1.12)}
-}
-.ending-message{
-  font-size:18px;
-  line-height:1.9;
-  white-space:pre-line;
-  text-align:left;
-  color:#f0e9ed;
-  background:#14151d;
-  padding:23px;
-  border:1px solid #5a3a4b;
-  margin-top:25px;
-}
-.signature{
-  color:var(--gold);
-  font-style:italic;
-  font-size:21px;
-  margin-top:24px;
-}
-.spark{
-  position:fixed;
-  top:-20px;
-  pointer-events:none;
-  animation:fall linear forwards;
-  z-index:10;
-}
-@keyframes fall{
-  to{transform:translateY(110vh) rotate(360deg);opacity:0}
-}
-@media(min-width:680px){
-  .scene{padding:35px 30px 50px}
-  .scene-grid{
-    grid-template-columns:minmax(240px,.85fr) minmax(280px,1.15fr);
-    align-items:stretch;
-  }
-  .portrait-wrap{height:auto;min-height:470px}
-  .dialogue{padding:27px}
-  .dialogue-text{font-size:19px}
-  .hero{min-height:75vh}
-}
+:root{--gold:#ffd65e;--blue:#315c78;--blue2:#25455f;--ink:#111018;--white:#fffaf5}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#111018;color:var(--white);font-family:Arial,Helvetica,sans-serif}button{font:inherit;-webkit-tap-highlight-color:transparent}#game{min-height:100svh;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 25%,#75443d 0,#30212a 43%,#101018 80%)}
+.scene-bg{position:absolute;inset:0;background:linear-gradient(180deg,#08091115 0%,#09091122 35%,#090911e8 72%,#090911 100%);z-index:1}
+.scene-art{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;z-index:0;background:radial-gradient(ellipse at 50% 32%,#9c6255 0,#4a3038 40%,#17151f 82%)}
+.scene-art img{height:83%;width:100%;position:absolute;top:0;left:0;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 8px 15px #0009)}
+.scene-art .fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px;background:radial-gradient(ellipse at 50% 35%,#5e3b48,#17151f 75%)}
+.fallback .symbol{font-size:100px;filter:drop-shadow(0 0 22px #e8b75c55)}.fallback strong{font-size:24px;color:var(--gold);margin-top:12px}.fallback span{font-size:11px;letter-spacing:3px;margin-top:8px;color:#e0d6d9}.fallback .fallback-portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;opacity:.98}.fallback .fallback-caption{position:absolute;bottom:36%;left:0;right:0;z-index:2;text-shadow:0 2px 8px #000}
+.top{position:absolute;z-index:4;top:0;left:0;right:0;padding:calc(12px + env(safe-area-inset-top)) 17px 10px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(#090911aa,transparent)}.logo{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--gold)}.chapter{font-size:10px;letter-spacing:1px;color:#f7e7d6}.progress{position:absolute;top:calc(43px + env(safe-area-inset-top));left:17px;right:17px;height:3px;background:#ffffff35;z-index:5}.progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.content{position:relative;z-index:3;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 16px calc(20px + env(safe-area-inset-bottom));padding-top:calc(55px + env(safe-area-inset-top))}
+.intro-screen{justify-content:center;padding-top:70px;background:linear-gradient(135deg,#16121d99,#111018bb)}.intro-screen:before{content:'⚔';font-size:90px;color:#ffd65e;opacity:.8;text-align:center;margin-bottom:25px}.eyebrow{font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin:0 0 12px}.intro-screen h1{font-family:Georgia,serif;font-size:clamp(40px,11vw,64px);line-height:1.02;font-weight:normal;margin:0 0 17px}.intro-screen p{font-size:15px;line-height:1.7;color:#e6dfe4;white-space:pre-line;max-width:540px}
+.dialogue-card{background:#f8f7f4f5;color:#181a20;border:2px solid #a8b5bf;box-shadow:0 10px 30px #0005;padding:17px 17px 16px;position:relative;backdrop-filter:blur(8px)}.speaker{font-weight:800;font-size:11px;letter-spacing:2px;color:#355a73;text-transform:uppercase;margin:0 0 10px}.dialogue{font-size:15px;line-height:1.6;white-space:pre-line}.dialogue em{color:#a51e3a;font-style:normal;font-weight:700}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.choice{min-height:54px;border:0;border-radius:30px;padding:13px 15px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-weight:700;font-size:13px;line-height:1.35;box-shadow:0 4px 9px #0004;border:1px solid #ffffff25}.choice:active,.main-btn:active{transform:scale(.98)}.choice:hover{filter:brightness(1.13)}.main-btn{width:100%;border:0;border-radius:30px;padding:16px 20px;margin-top:16px;background:linear-gradient(100deg,#f2bf38,#ffe98a);color:#241a16;font-weight:800;letter-spacing:.5px;box-shadow:0 5px 15px #0004}.tiny{font-size:9px;letter-spacing:1px;text-align:center;color:#eee2e5;margin-top:13px;text-shadow:0 1px 5px #000}
+.ending{background:#f9f6f4f5;color:#201821;border:2px solid #e2b3c1;padding:20px;max-height:70svh;overflow:auto;line-height:1.75;white-space:pre-line}.ending h2{font-family:Georgia,serif;font-weight:normal;color:#a51e3a}.ending .signature{color:#a51e3a;text-align:right;font-family:Georgia,serif;font-style:italic;font-size:19px}.heart-rain{position:fixed;z-index:10;top:-30px;animation:fall 5s linear forwards;pointer-events:none}@keyframes fall{to{transform:translateY(110svh) rotate(300deg);opacity:0}}
+@media(min-width:700px){.content{max-width:760px;width:100%;margin:auto;padding-bottom:35px}.scene-art img{height:90%}.dialogue-card{padding:22px 25px}.dialogue{font-size:17px}.choice{font-size:14px}}
 </style>
 </head>
-
 <body>
-<div id="app">
-  <header class="topbar">
-    <div class="brand">KIMETSU NO YAIBA</div>
-    <div class="progress-text" id="progressText">PRÓLOGO</div>
-  </header>
-  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
-  <main id="content" class="scene"></main>
+<div id="game">
+ <div class="scene-art" id="art"><div class="fallback" id="fallback"><div class="symbol" id="symbol">⚔️</div><strong id="fallbackName">Demon Slayer</strong><span id="fallbackTitle">CAÇADORES DE ONI</span></div></div>
+ <div class="scene-bg"></div>
+ <header class="top"><div class="logo">DEMON SLAYER</div><div class="chapter" id="chapter">UMA SURPRESA PARA RICHARD</div></header><div class="progress"><span id="bar"></span></div>
+ <main id="content" class="content"></main>
 </div>
-
 <script>
-/*
-  DEMON SLAYER — UMA SURPRESA PARA RICHARD
-  As imagens são carregadas de links externos.
-  Se algum link deixar de funcionar, a cena continua funcionando.
-*/
-
-const characters = {
-  gyutaro: {
-    name:"Gyutaro",
-    title:"Lua Superior Seis",
-    image:"https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/5/59/Gyutaro_Anime_Design.png"
-  },
-  tomioka: {
-    name:"Giyu Tomioka",
-    title:"Hashira da Água",
-    image:"https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/3/35/Giyu_anime_design.png"
-  },
-  rengoku: {
-    name:"Kyojuro Rengoku",
-    title:"Hashira das Chamas",
-    image:"https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/0/09/Kyojuro_anime_design.png"
-  },
-  sanemi: {
-    name:"Sanemi Shinazugawa",
-    title:"Hashira do Vento",
-    image:"https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/2/2a/Sanemi_anime_design.png"
-  },
-  tanjiro: {
-    name:"Tanjiro Kamado",
-    title:"Caçador de Oni",
-    image:"https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/6/6d/Tanjiro_anime_design.png"
-  },
-  nezuko: {
-    name:"Nezuko Kamado",
-    title:"A garota que protege quem ama",
-    image:"https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/3/3e/Nezuko_anime_design.png"
-  }
+const cast={
+ tanjiro:{name:'Tanjiro Kamado',title:'CAÇADOR DE ONI',symbol:'🔥',image:'https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/6/6d/Tanjiro_anime_design.png'},
+ gyutaro:{name:'Gyutaro',title:'LUA SUPERIOR SEIS',symbol:'☠️',image:'https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/5/59/Gyutaro_Anime_Design.png'},
+ tomioka:{name:'Giyu Tomioka',title:'HASHIRA DA ÁGUA',symbol:'🌊',image:'https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/3/35/Giyu_anime_design.png'},
+ rengoku:{name:'Kyojuro Rengoku',title:'HASHIRA DAS CHAMAS',symbol:'🔥',image:'https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/0/09/Kyojuro_anime_design.png'},
+ sanemi:{name:'Sanemi Shinazugawa',title:'HASHIRA DO VENTO',symbol:'🌪️',image:'https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/2/2a/Sanemi_anime_design.png'},
+ nezuko:{name:'Nezuko Kamado',title:'A PROTETORA',symbol:'🌸',image:'https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/3/3e/Nezuko_anime_design.png'}
 };
-
-const scenes = [
-{
-  type:"intro",
-  kicker:"Uma aventura criada especialmente para você",
-  title:'Richard, sua história começa <span class="gold">agora.</span>',
-  text:"Uma noite estranha. Um chamado inesperado. Os Hashira estão reunidos, e existe algo que nenhum deles consegue explicar.\n\nMas antes de começar… alguém pediu para deixar uma mensagem só para você.",
-  button:"ENTRAR NA HISTÓRIA  →"
-},
-{
-  speaker:"Luana",
-  title:"Uma mensagem fora da história",
-  image:null,
-  text:"Oi, meu amor. ❤️\n\nSe você chegou até aqui, é porque aceitou entrar nessa aventura que eu preparei para você. Eu queria fazer algo diferente, algo que tivesse personagens que você gosta e que mostrasse um pouquinho do quanto você é especial para mim.\n\nHoje, você não é só alguém lendo uma história. Você é o protagonista dela.\n\nE eu tenho uma coisinha para te contar no final… mas você vai precisar descobrir o caminho até lá. 🤍",
-  choices:[
-    ["Continuar a aventura","next"],
-    ["Perguntar o que a Luana está escondendo","next"]
-  ]
-},
-{
-  character:"tanjiro",
-  speaker:"Tanjiro Kamado",
-  title:"O chamado dos caçadores",
-  text:"Richard! Finalmente você chegou.\n\nEstamos investigando um acontecimento estranho. Há sinais de que alguém está tentando nos distrair, mas ainda não descobrimos o motivo.\n\nAntes de seguirmos, quero saber: o que você faz quando tudo parece confuso?",
-  choices:[
-    ["Observo tudo antes de agir.","Você pensa antes de tomar uma decisão. Isso pode ser uma grande força nesta investigação."],
-    ["Enfrento o problema de frente!","Essa coragem vai ser importante. Só não se esqueça de prestar atenção no que acontece ao seu redor."],
-    ["Protejo primeiro as pessoas importantes para mim.","Tanjiro sorri. — Proteger quem amamos também é uma forma de coragem."]
-  ]
-},
-{
-  character:"gyutaro",
-  speaker:"Gyutaro",
-  title:"A visita inesperada",
-  text:"Heh… então você é o Richard?\n\nOuvi falarem de você. Não sei se acredito nessa história toda de coragem e força. Muita gente parece forte quando tudo está tranquilo.\n\nMas me diga uma coisa, humano… o que faz alguém continuar firme quando a vida fica difícil?",
-  choices:[
-    ["A força de vontade. Eu não desisto fácil.","Gyutaro estreita os olhos. — Hmph. Pelo menos você não parece ser alguém que desiste na primeira dificuldade."],
-    ["As pessoas que eu amo me dão motivos para continuar.","Por um instante, Gyutaro fica em silêncio. — Então existe algo que você considera mais importante do que você mesmo… interessante."],
-    ["Errar não significa que a pessoa seja fraca.","Gyutaro solta uma risada curta. — Hah! Você tem uma resposta para tudo, não é?"]
-  ]
-},
-{
-  character:"tomioka",
-  speaker:"Giyu Tomioka",
-  title:"A calma antes da batalha",
-  text:"Richard.\n\nNem sempre a pessoa mais forte é aquela que fala mais alto. Às vezes, a força está em continuar tentando, reconhecer os próprios erros e aprender com eles.\n\nNinguém consegue acertar em todas as situações. O importante é o que fazemos depois.\n\nVocê acredita que alguém pode se tornar mais forte depois de passar por um momento difícil?",
-  choices:[
-    ["Sim. A gente aprende com o que vive.","Tomioka concorda discretamente. — É isso. O passado pode ensinar, desde que não nos impeça de seguir em frente."],
-    ["Acredito. Principalmente quando a pessoa não está sozinha.","— Ter alguém ao lado pode fazer diferença — responde Tomioka, com sua habitual calma."],
-    ["Às vezes é difícil, mas vale a pena tentar.","— Reconhecer que é difícil também exige coragem, Richard."]
-  ]
-},
-{
-  character:"rengoku",
-  speaker:"Kyojuro Rengoku",
-  title:"Chamas que não se apagam",
-  text:"RICHARD! QUE BOM QUE VOCÊ ESTÁ AQUI!\n\nA vida nem sempre segue o plano que imaginamos. Existem dias complicados, dúvidas e momentos em que precisamos respirar fundo.\n\nMas nunca se esqueça: você não precisa ser perfeito para ser alguém admirável!\n\nDiga-me, qual dessas coisas você quer levar consigo nesta jornada?",
-  choices:[
-    ["Coragem para enfrentar os desafios.","— EXCELENTE! A coragem não significa nunca sentir medo, mas seguir em frente apesar das dificuldades!"],
-    ["Paciência para aprender com meus erros.","— MARAVILHOSO! Quem aprende continua crescendo!"],
-    ["Carinho e respeito por quem está ao meu lado.","— MAGNÍFICO! Uma força que também sabe cuidar dos outros é preciosa!"]
-  ]
-},
-{
-  character:"sanemi",
-  speaker:"Sanemi Shinazugawa",
-  title:"O teste do vento",
-  text:"Então você é o tal Richard.\n\nVou ser direto: falar é fácil. Quero saber se você consegue reconhecer quando erra e tentar fazer melhor na próxima vez.\n\nNinguém é perfeito. Nem mesmo os caçadores mais fortes.\n\nO que você faria depois de uma discussão com alguém importante para você?",
-  choices:[
-    ["Tentaria conversar com sinceridade.","Sanemi cruza os braços. — Hm. Ter essa conversa pode ser difícil, mas fugir dela nem sempre resolve."],
-    ["Escutaria o outro lado antes de decidir.","— Isso já é melhor do que achar que só um lado tem algo a dizer — responde Sanemi."],
-    ["Reconheceria minha parte e tentaria melhorar.","Sanemi desvia o olhar. — Não é tão simples quanto parece. Mas reconhecer a própria parte é um começo."]
-  ]
-},
-{
-  character:"nezuko",
-  speaker:"Nezuko Kamado",
-  title:"O que realmente importa",
-  text:"Nezuko se aproxima em silêncio. Ela inclina a cabeça, observa você e aponta para um pequeno embrulho deixado perto de uma árvore.\n\nDentro dele há uma fita vermelha e um bilhete.\n\nNo bilhete está escrito:\n\n“Mesmo em uma história cheia de mistérios, não se esqueça das pessoas que tornam a sua vida especial.”",
-  choices:[
-    ["Guardar o bilhete e continuar.","Você guarda o bilhete com cuidado. A aventura ainda não terminou."],
-    ["Procurar quem deixou o presente.","Você olha ao redor. Há alguém acompanhando cada passo seu…"]
-  ]
-},
-{
-  character:"gyutaro",
-  speaker:"Gyutaro",
-  title:"O último enigma",
-  text:"Você chegou longe, Richard.\n\nNão vou fingir que entendo tudo sobre os humanos. Mas tem uma coisa que percebi: vocês podem passar por dificuldades e ainda assim escolher cuidar uns dos outros.\n\nAgora, última pergunta. Se alguém que você ama preparar algo especial para você, o que vai importar mais?",
-  choices:[
-    ["O carinho e a intenção por trás do gesto.","Gyutaro olha para o lado. — Tsc… acho que consigo entender isso."],
-    ["O tempo que a pessoa dedicou a mim.","— Dedicar tempo a alguém diz bastante — ele responde, um pouco menos provocador."],
-    ["A lembrança que vamos guardar juntos.","Gyutaro sorri de canto. — Então trate de guardar essa lembrança direito."]
-  ]
-},
-{
-  type:"final",
-  kicker:"Missão concluída",
-  title:'O verdadeiro tesouro é <span class="gold">você.</span>',
-  text:"Os caçadores se reúnem. Até Gyutaro aparece, embora finja que só está ali por acaso.\n\nTanjiro sorri. Rengoku ergue o punho com entusiasmo. Tomioka observa em silêncio, Sanemi cruza os braços e Nezuko bate palminhas.\n\nTodos têm uma última mensagem para você.",
-  button:"REVELAR A SURPRESA ❤️"
-},
-{
-  type:"surprise",
-  kicker:"Uma mensagem preparada com carinho",
-  title:'Para o meu <span class="gold">Richard.</span>',
-  text:"Meu amor, essa parte é sua. ❤️"
-}
+const scenes=[
+{type:'intro',title:'Uma aventura feita para você',text:'Richard, prepare-se.\n\nUma missão misteriosa acaba de começar. Os caçadores estão esperando por você — e alguém especial preparou uma surpresa no fim desta jornada.\n\nToque abaixo para entrar no mundo de Demon Slayer.',button:'COMEÇAR A MISSÃO ⚔️'},
+{speaker:'Luana · mensagem especial',title:'Antes da missão',text:'Oi, meu amor. ❤️\n\nEu preparei essa aventura porque queria fazer algo diferente para você, com personagens que você gosta e um pedacinho do meu coração. Hoje, você é o protagonista.\n\nE tem uma surpresa esperando no final… mas primeiro, vamos ver se você consegue completar a missão.',choices:[['Vamos descobrir!','next'],['Já fiquei curioso com essa surpresa!','next']]},
+{character:'tanjiro',speaker:'Tanjiro Kamado',title:'A missão começa',text:'Richard! Que bom que você chegou. Estamos investigando um mistério e precisamos de alguém que saiba pensar com coragem.\n\nQuando aparece um problema inesperado, qual é sua primeira atitude?',choices:[['Observo tudo antes de agir.','Tanjiro sorri. — Pensar com calma pode revelar coisas que ninguém percebeu.'],['Enfrento o desafio de frente!','— Essa coragem vai ajudar muito, Richard! Só não se esqueça de observar os detalhes.'],['Protejo primeiro quem é importante para mim.','Tanjiro sorri com carinho. — Proteger as pessoas que amamos também é uma grande forma de coragem.']]},
+{character:'gyutaro',speaker:'Gyutaro',title:'O encontro com Gyutaro',text:'Então você é o Richard… Hm. Quero ver se você é tão determinado quanto dizem.\n\nA vida nem sempre facilita as coisas. O que ajuda você a continuar quando um dia fica difícil?',choices:[['Minha força de vontade.','Gyutaro dá um sorriso de canto. — Hmph. Você não parece alguém que desiste facilmente.'],['As pessoas que eu amo.','Gyutaro fica em silêncio por um instante. — Então você tem algo pelo qual vale a pena lutar… entendi.'],['Eu respiro, aprendo e tento de novo.','— Hah! Pelo menos sabe que nem tudo se resolve de primeira. Isso já é alguma coisa.']]},
+{character:'tomioka',speaker:'Giyu Tomioka',title:'A serenidade da água',text:'Richard. Ser forte não significa acertar sempre. Também é preciso reconhecer os próprios erros e aprender com eles.\n\nVocê acredita que duas pessoas podem superar um momento difícil quando se escutam de verdade?',choices:[['Sim, conversar faz diferença.','Tomioka concorda. — Escutar com sinceridade pode abrir caminhos que pareciam fechados.'],['Sim, se as duas quiserem melhorar.','— É preciso esforço dos dois lados — diz Tomioka. — Mas tentar já é importante.'],['Acho difícil, mas vale a tentativa.','Tomioka olha para você com calma. — Admitir que é difícil não impede ninguém de tentar.']]},
+{character:'rengoku',speaker:'Kyojuro Rengoku',title:'A chama da coragem',text:'RICHARD! QUE BOM QUE VOCÊ CHEGOU!\n\nLembre-se: você não precisa ser perfeito para ser admirável! Cada dia é uma oportunidade de aprender e fazer melhor.\n\nQual dessas qualidades você quer levar consigo?',choices:[['Coragem para seguir em frente.','— EXCELENTE! Coragem não é nunca sentir medo; é continuar mesmo assim!'],['Paciência para aprender.','— MARAVILHOSO! Quem aprende e cresce fortalece a própria chama!'],['Carinho por quem caminha comigo.','— MAGNÍFICO! A força também está em saber cuidar das pessoas!']]},
+{character:'sanemi',speaker:'Sanemi Shinazugawa',title:'O desafio do vento',text:'Escuta, Richard. Todo mundo erra. O que importa é o que a pessoa faz depois.\n\nSe você tivesse um desentendimento com alguém muito importante, como tentaria resolver?',choices:[['Conversaria com sinceridade.','Sanemi cruza os braços. — Não é fácil, mas falar com sinceridade é melhor do que deixar tudo virar um mal-entendido.'],['Escutaria o outro lado também.','— Hm. Pelo menos entende que uma história tem mais de um lado.'],['Reconheceria minha parte e tentaria melhorar.','Sanemi desvia o olhar. — Isso exige coragem. Não é um começo ruim.']]},
+{character:'nezuko',speaker:'Nezuko Kamado',title:'Uma pista inesperada',text:'Nezuko encontra um pequeno envelope perto do caminho e entrega a você. Dentro há um bilhete: “A força de alguém não se mede pela perfeição, mas também pelo carinho que escolhe oferecer.”\n\nNo verso, uma frase escrita à mão: “Continue. Alguém preparou algo para você.”',choices:[['Guardar o bilhete e continuar.','Você guarda o bilhete com cuidado. Parece que a última parte da missão está próxima.'],['Descobrir quem deixou o bilhete.','Você olha ao redor, mas só encontra pegadas levando ao local da reunião.']]},
+{character:'gyutaro',speaker:'Gyutaro',title:'A última pergunta',text:'Você chegou até aqui, Richard. Última pergunta. Quando alguém prepara uma surpresa para você, o que mais importa?',choices:[['O carinho que colocou em cada detalhe.','Gyutaro revira os olhos. — Tsc… acho que consigo entender isso.'],['O tempo que dedicou a mim.','— Dedicar tempo a alguém diz bastante — ele responde, menos provocador.'],['A lembrança que vamos guardar juntos.','Gyutaro sorri de canto. — Então trate de guardar essa lembrança direito.']]},
+{type:'finalintro',title:'Missão concluída',text:'Os caçadores se reúnem para a última revelação. Tanjiro sorri, Rengoku ergue o punho, Tomioka observa em silêncio, Sanemi cruza os braços, Nezuko comemora e Gyutaro finge que não está nem um pouco interessado.',button:'REVELAR A SURPRESA ❤️'},
+{type:'ending',title:'Para o meu Richard ❤️'}
 ];
-
-let current=0;
-let lastReply="";
-
-const content=document.getElementById("content");
-const progressText=document.getElementById("progressText");
-const progressFill=document.getElementById("progressFill");
-
-function escapeText(text){
-  return String(text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+let current=0;const content=document.getElementById('content'),art=document.getElementById('art'),bar=document.getElementById('bar'),chapter=document.getElementById('chapter');
+function safe(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function makePortrait(key){
+ const looks={
+  tanjiro:{hair:'#321b19',coat:'#277c68',trim:'#15191e',mark:'#b92e35'},
+  gyutaro:{hair:'#547039',coat:'#5d343a',trim:'#201b20',mark:'#d4b34f'},
+  tomioka:{hair:'#101522',coat:'#202d4b',trim:'#161a23',mark:'#558b9c'},
+  rengoku:{hair:'#f2a629',coat:'#eee6d9',trim:'#17191d',mark:'#c8342d'},
+  sanemi:{hair:'#d9d9d3',coat:'#ddd9ce',trim:'#20222b',mark:'#a52a3d'},
+  nezuko:{hair:'#20131d',coat:'#d98b9f',trim:'#34222a',mark:'#a8d6b4'}
+ };
+ const a=looks[key]||looks.tanjiro;
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 650">
+ <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#65404b"/><stop offset="1" stop-color="#11121b"/></linearGradient><linearGradient id="skin" x2="0" y2="1"><stop stop-color="#f6d1b2"/><stop offset="1" stop-color="#c88d76"/></linearGradient></defs>
+ <rect width="400" height="650" fill="url(#bg)"/><circle cx="300" cy="120" r="88" fill="#e9c77b" opacity=".15"/>
+ <path d="M60 650 Q65 470 140 420 L260 420 Q335 470 340 650Z" fill="${a.coat}" stroke="${a.trim}" stroke-width="12"/>
+ <path d="M170 415 L200 510 L230 415" fill="${a.trim}"/><path d="M187 435 L200 460 L213 435" fill="${a.mark}"/>
+ <path d="M122 215 Q100 60 205 55 Q315 58 288 235 L270 340 Q245 405 200 405 Q145 390 128 330Z" fill="${a.hair}"/>
+ <path d="M145 170 Q150 110 202 110 Q258 105 265 175 L255 300 Q247 365 200 370 Q154 363 145 300Z" fill="url(#skin)"/>
+ <path d="M140 190 Q122 105 188 78 L165 155 L205 108 L205 160 L240 95 L265 160 L292 122 Q310 210 267 230 L260 174 Q225 200 198 173 Q170 206 145 225Z" fill="${a.hair}"/>
+ <path d="M155 232 Q178 215 192 232" fill="none" stroke="#4b2927" stroke-width="7" stroke-linecap="round"/><path d="M210 232 Q230 215 247 232" fill="none" stroke="#4b2927" stroke-width="7" stroke-linecap="round"/>
+ <ellipse cx="177" cy="242" rx="13" ry="16" fill="#f7f0dc"/><ellipse cx="229" cy="242" rx="13" ry="16" fill="#f7f0dc"/><ellipse cx="179" cy="244" rx="7" ry="11" fill="${a.mark}"/><ellipse cx="227" cy="244" rx="7" ry="11" fill="${a.mark}"/><circle cx="181" cy="240" r="3" fill="white"/><circle cx="229" cy="240" r="3" fill="white"/>
+ <path d="M197 248 L190 278 L203 280" fill="none" stroke="#a86e61" stroke-width="4" stroke-linecap="round"/><path d="M180 302 Q200 315 221 300" fill="none" stroke="#8d4e50" stroke-width="5" stroke-linecap="round"/>
+ <path d="M128 286 Q115 365 167 396 L185 370 L151 320Z" fill="${a.hair}"/><path d="M271 285 Q290 350 236 398 L219 369 L252 320Z" fill="${a.hair}"/>
+ <path d="M130 445 L165 470 L151 520 L115 495Z" fill="${a.mark}" opacity=".8"/><path d="M270 445 L235 470 L249 520 L285 495Z" fill="${a.mark}" opacity=".8"/>
+ <path d="M155 430 L200 465 L245 430" fill="none" stroke="#e9c77b" stroke-width="5" opacity=".8"/>
+ </svg>`;
+ return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
 }
-
-function updateProgress(){
-  progressFill.style.width=(current/(scenes.length-1)*100)+"%";
-  progressText.textContent=current===0?"PRÓLOGO":
-    current===scenes.length-1?"SURPRESA FINAL":
-    "CAPÍTULO "+current;
-}
-
-function nextScene(){
-  current++;
-  if(current>=scenes.length) current=scenes.length-1;
-  render();
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function selectChoice(index){
-  const scene=scenes[current];
-  const choice=scene.choices[index];
-  if(!choice)return;
-  lastReply=choice[0];
-  const response=choice[1];
-
-  if(response==="next"){
-    nextScene();
-    return;
-  }
-
-  scene.playerReply=lastReply;
-  scene.playerResponse=response;
-  render();
-}
-
-function portraitHTML(character){
-  const c=characters[character];
-  if(!c)return "";
-  return `
-    <div class="portrait-wrap">
-      <img class="portrait"
-        src="${c.image}"
-        alt="${c.name}"
-        onerror="this.style.display='none';this.parentElement.classList.add('no-image');this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:#e9c77b;font:15px Arial,sans-serif&quot;>Imagem indisponível<br>— ${c.name} —</div>')">
-      <div class="portrait-label">
-        <strong>${c.name}</strong>
-        <span>${c.title}</span>
-      </div>
-    </div>`;
-}
-
-function render(){
-  updateProgress();
-  const s=scenes[current];
-
-  if(s.type==="intro"){
-    content.innerHTML=`
-      <section class="hero">
-        <div class="seal">⚔ DEMON SLAYER · EXPERIÊNCIA INTERATIVA</div>
-        <div class="kicker">${s.kicker}</div>
-        <h1>${s.title}</h1>
-        <p class="intro">${escapeText(s.text).replace(/\n/g,"<br>")}</p>
-        <button class="primary" onclick="nextScene()">${s.button}</button>
-        <div class="footnote">UMA HISTÓRIA ESPECIAL PARA RICHARD · FEITA COM CARINHO POR LUANA</div>
-      </section>`;
-    return;
-  }
-
-  if(s.type==="final"){
-    content.innerHTML=`
-      <div class="hero">
-        <div class="kicker">${s.kicker}</div>
-        <h1>${s.title}</h1>
-        <p class="intro">${escapeText(s.text).replace(/\n/g,"<br>")}</p>
-        <button class="primary" onclick="nextScene()">${s.button}</button>
-      </div>`;
-    return;
-  }
-
-  if(s.type==="surprise"){
-    content.innerHTML=`
-      <div class="ending">
-        <div class="big-heart">❤️</div>
-        <div class="kicker">${s.kicker}</div>
-        <h1>${s.title}</h1>
-        <p class="intro">${escapeText(s.text)}</p>
-
-        <div class="memory-card">
-          <div class="heart">🌹 ⚔️ 🌹</div>
-          <strong style="color:#e9c77b">Uma última mensagem de todos:</strong><br><br>
-          <strong>Tanjiro:</strong> “Continue acreditando na sua capacidade de crescer.”<br><br>
-          <strong>Tomioka:</strong> “Você não precisa ter todas as respostas hoje.”<br><br>
-          <strong>Rengoku:</strong> “MANTENHA SUA CHAMA ACESA, RICHARD!”<br><br>
-          <strong>Sanemi:</strong> “Reconheça seus erros, aprenda e siga em frente.”<br><br>
-          <strong>Nezuko:</strong> “Mmm!” 💗<br><br>
-          <strong>Gyutaro:</strong> “Tsc… não se acostume com isso. Mas você se saiu bem.”
-        </div>
-
-        <div class="ending-message">
-          Meu amor, Richard… ❤️
-
-          Eu preparei essa aventura porque queria te dar algo diferente. Algo que tivesse um pouquinho de uma coisa que você gosta e, ao mesmo tempo, levasse um pedacinho do meu coração.
-
-          Eu quero que você saiba que eu vejo muito mais em você do que talvez consiga perceber em si mesmo. Você tem qualidades, tem sua própria força, tem coisas bonitas para oferecer ao mundo e ainda tem muito para viver, aprender e conquistar.
-
-          Você não precisa ser perfeito para ser importante para mim. Não precisa acertar sempre, nem ter todas as respostas. Eu também erro, também tenho coisas para aprender e também quero melhorar.
-
-          O que importa é a nossa disposição de conversar, ouvir, reconhecer nossos erros e tratar um ao outro com carinho e respeito. Eu quero que a gente possa crescer, aprender e construir lembranças bonitas juntos.
-
-          Obrigada por fazer parte da minha vida. Obrigada por ser você, com sua personalidade, seus gostos, seus sonhos e esse jeitinho que faz você ser único para mim.
-
-          Se eu pudesse deixar uma coisa guardada no final desta aventura, seria isto: você é amado. Você é importante. E existe uma menina que preparou cada pedacinho desta surpresa pensando em você.
-
-          Eu te amo muito, meu amor. Espero que, quando terminar de ler, você fique com um sorriso no rosto e lembre que, mesmo quando os dias não são pe
+function updateArt(key){art.querySelectorAll('img').forEach(i=>i.remove());const f=document.getElementById('fallback');if(!key){art.style.display='none';return}art.style.display='flex';const c=cast[key];if(!c)return;document.getElementById('symbol').textContent=c.symbol;document.getElementById('fallbackName').textContent=c.name;document.getElementById('fallbackTitle').textContent=c.title;f.style.display='flex';f.querySelectorAll('.fallback-portrait').forEach(i=>i.remove());const backup=document.createElement('img');backup.className='fallback-portrait';backup.alt='Ilustração estilizada de '+c.name;backup.src=makePortrait(key);f.prepend(backup);const im=document.createElement('img');im.alt=c.name;im.src=c.image;im.onload=()=>{f.style.display='none'};im.onerror=()=>{im.remove();f.style.display='flex'};art.appendChild(im)}
+function next(){current=Math.min(current+1,scenes.length-1);render();window.scrollTo(0,0)}
+function choose(i){const s=scenes[current],c=s.choices[i];if(!c)return;if(c[1]==='next'){next();return}s.reply=c[0];s.response=c[1];render()}
+function render(){const s=scenes[current];bar.style.width=(current/(scenes.length-1)*100)+'%';chapter.textContent=current===0?'PRÓLOGO':current===scenes.length-1?'MENSAGEM FINAL':'CAPÍTULO '+current;updateArt(s.character);
+if(s.type==='intro'){content.className='content intro-screen';content.innerHTML=`<p class="eyebrow">${s.title}</p><h1>Demon Slayer<br><span style="color:#ffd65e">para Richard</span></h1><p>${safe(s.text)}</p><button class="main-btn" onclick="next()">${s.button}</button><p class="tiny">UMA SURPRESA PREPARADA COM CARINHO POR LUANA</p>`;return}
+if(s.type==='finalintro'){content.className='content';content.innerHTML=`<section class="dialogue-card"><p class="speaker">MISSÃO COMPLETA</p><h2 style="font-family:Georgia,serif;font-weight:normal">${s.title}</h2><div class="dialogue">${safe(s.text)}</div><button class="main-btn" onclick="next()">${s.button}</button></section>`;return}
+if(s.type==='ending'){content.className='content';content.innerHTML=`<section class="ending"><p class="eyebrow">SURPRESA FINAL</p><h2>${s.title}</h2><div>Meu amor, essa aventura foi feita pensando em você. ❤️\n\nQuero que você saiba que eu vejo muito mais em você do que talvez consiga perceber em si mesmo. Você tem qualidades, sua própria força, coisas bonitas para oferecer ao mundo e muito para viver, aprender e conquistar.\n\nVocê não precisa ser perfeito para ser importante para mim. Eu também erro, também tenho coisas para aprender e quero melhorar. Quero que a gente possa conversar, escutar um ao outro, reconhecer nossos erros e tratar um ao outro com carinho e respeito.\n\nObrigada por fazer parte da minha vida, por ser você e por dividir comigo tantos momentos. Eu espero que esta surpresa tenha feito você sorrir e lembrado que existe uma menina que preparou cada pedacinho dela com muito carinho.\n\nEu te amo muito, meu amor. Que a gente continue escrevendo nossa história com amor, paciência, respeito e muitas lembranças bonitas. ❤️</div><p class="signature">Com carinho, Luana ♥️</p><button class="main-btn" onclick="restart()">JOGAR NOVAMENTE ↻</button></section>`;hearts();return}
+content.className='content';let text=s.text;if(s.reply)text+='\n\nSua escolha: '+s.reply+'\n\n'+s.response;let options='';if(s.choices&&!s.reply){options='<div class="choices">'+s.choices.map((c,i)=>`<button class="choice" onclick="choose(${i})">${c[0]}</button>`).join('')+'</div>'}else options='<button class="main-btn" onclick="next()">CONTINUAR →</button>';
+content.innerHTML=`<section class="dialogue-card"><p class="speaker">${s.speaker}</p><div class="dialogue">${safe(text)}</div>${options}</section><p class="tiny">TOQUE EM UMA OPÇÃO PARA CONTINUAR A HISTÓRIA</p>`}
+function restart(){current=0;scenes.forEach(s=>{delete s.reply;delete s.response});render();window.scrollTo(0,0)}
+function hearts(){for(let i=0;i<22;i++){const e=document.createElement('span');e.className='heart-rain';e.textContent=['❤️','✨','🌸'][Math.floor(Math.random()*3)];e.style.left=Math.random()*100+'vw';e.style.animationDelay=Math.random()*2+'s';e.style.fontSize=(12+Math.random()*18)+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),7000)}}
+render();
+</script>
+</body>
+</html>
